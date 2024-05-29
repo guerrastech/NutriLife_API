@@ -1,0 +1,15 @@
+{
+  "name": "api-nutrilife",
+  "version": "1.0.0",
+  "description": "api que sera utilizada para desenvolvimento do projeto NutriLife",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js"
+  },
+  "author": "Gabriel Guerra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.4.0"
+  }
+}
