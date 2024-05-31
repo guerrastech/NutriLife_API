@@ -25,17 +25,16 @@ const createUser = async (req,res) => {
 };
 
 
-const updateUser = async (req,res) => {
-    try{
-        const {id} = req.params;
-        const users = await User.findByIdAndUpdate(id,req.body);
-
-        const userUpdated = await User.findById(id);
-        res.status(200).json(userUpdated);
-    }catch(error){
-        res.status(500).json({message: error.message});
+const updateUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedUser = await User.findByIdAndUpdate(id, req.body, { new: true });
+        res.status(200).json(updatedUser);
+    } catch(error) {
+        res.status(500).json({ message: error.message });
     }
 };
+
 
 const deleteUser = async (req,res) => {
     try{

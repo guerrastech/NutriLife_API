@@ -7,7 +7,7 @@ const userScheme = mongoose.Schema({
         required: true
     },
     name:{
-        type: Date,
+        type: String,
         required: true
     },
     preferences:{
