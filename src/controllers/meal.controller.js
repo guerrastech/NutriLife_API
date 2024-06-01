@@ -21,11 +21,11 @@ const getMeal = async (req, res) => {
 
 const createMeal = async (req, res) => {
     try {
-        const { userId } = req.body;
+        // const { userId } = req.body;
 
-        if (!userId) {
-            return res.status(400).json({ error: "ID do usuário é obrigatório." });
-        }
+        // if (!userId) {
+        //     return res.status(400).json({ error: "ID do usuário é obrigatório." });
+        // }
 
         const meals = await Meal.create(req.body);
         res.status(200).json(meals);
@@ -53,8 +53,9 @@ const deleteMeal = async (req, res) => {
 const updateMeal = async (req, res) => {
     try {
         const { id } = req.params;
-        
-        const updatedMeal = await Meal.findByIdAndUpdate(id, req.body, { new: true });
+        const filter = { _id: id };
+
+        const updatedMeal = await Meal.findOneAndUpdate(filter, req.body, { new: true });
         
         res.status(200).json(updatedMeal);
     } catch (error) {
