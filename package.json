@@ -4,7 +4,7 @@
   "description": "api que sera utilizada para desenvolvimento do projeto NutriLife",
   "main": "server.js",
   "scripts": {
-    "start": "server.js"
+    "start": "node server.js"
   },
   "author": "Gabriel Guerra",
   "license": "ISC",
