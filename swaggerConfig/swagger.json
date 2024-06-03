@@ -1,0 +1,528 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API NutriLife",
+        "description": "api que sera utilizada para desenvolvimento do projeto NutriLife",
+        "contact":{
+            "email": "gabrielguerra190803@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+
+    "servers": [
+        {
+            "url": "http://localhost:3000/NutriLife/api",
+            "description": "API principal"
+        }
+    ],
+
+
+    "paths": {
+        "/users/get/":{
+            "get": {
+                "summary": "Busca de Usuários",
+                "description": "Está rota será responsável por Buscar os usuário da aplicação",
+                "tags": ["Users"],
+                "responses":{
+                    "200":{
+                        "description": "Busca realizada com sucesso",
+                        "content": {
+                            "application/json":{
+                                  "schema":{
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                                      }
+                                }
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/users/create/":{
+            "post":{
+                "summary": "Cadastro de Usuários",
+                "description": "Está rota será responsável por cadastrar os usuário da aplicação",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "example":{  "email": "gabrielguerra190803@gail.com",
+                                        "name": "Gabriel Guerra",
+                                        "preferences": "vegano",
+                                        "password": "gabriel123"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "Usuário cadastrado comm sucesso"
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/users/update/{id}":{
+            "put":{
+                "summary": "Atualização de Usuários",
+                "description": "Está rota será responsável por atualizar os usuário da aplicação",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "example":{  "email": "gabrielguerra190803@gail.com",
+                                        "name": "Gabriel Guerra",
+                                        "preferences": "vegano",
+                                        "password": "gabriel123"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "id do usuário",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "Usuário atualizado comm sucesso"
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/users/delete/{id}":{
+            "delete":{
+                "summary": "Exclusão de Usuários",
+                "description": "Está rota será responsável por excluir os usuário da aplicação",
+                "tags": ["Users"],
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "id do usuário",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "Usuário excluído comm sucesso"
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+
+
+        "/meals/get/{userId}":{
+            "get":{
+                "summary": "Busca de Alimentações",
+                "description": "Está rota será responsável por buscar as refeições dos usuários na aplicação",
+                "tags": ["Meals"],
+                "parameters": [
+                    {
+                      "name": "userId",
+                                        "in": "path",
+                                        "description": "id do usuário",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "busca realizada com sucesso"
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/meals/create/":{
+            "post":{
+                "summary": "Cadastro de Alimentações",
+                "description": "Está rota será responsável por cadastrar as refeições dos usuários na aplicação",
+                "tags": ["Meals"],
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Meals"
+                            },
+                            "example":{     
+                                "userId": "id do usuário",
+                                "title": "Arroz com abobora",
+                                "description": "Arroz com abobora",
+                                "calories": "170",
+                                "img_url": "Arroz com abobora"
+                        
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "Cadastro realizada com sucesso"
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/meals/update/{id}":{
+            "put":{
+                "summary": "Atualização de Alimentações",
+                "description": "Está rota será responsável por atualizar as refeições dos usuários na aplicação",
+                "tags": ["Meals"],
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Meals"
+                            },
+                            "example":{     
+                                "userId": "id do usuário",
+                                "title": "Arroz com abobora",
+                                "description": "Arroz com abobora",
+                                "calories": "170",
+                                "img_url": "Arroz com abobora"
+                        
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "id da refeição",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "Atualização realizada com sucesso"
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/meals/delete/{id}":{
+            "delete":{
+                "summary": "Exclusão de Alimentações",
+                "description": "Está rota será responsável por atualiexcluir as refeições dos usuários na aplicação",
+                "tags": ["Meals"],
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "id da refeição",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "Exclusão realizada com sucesso"
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+
+
+
+        "/revenues/get/{preference}":{
+            "get":{
+                "summary": "Busca de Receitas a partir de sua preferencias",
+                "description": "Está rota será responsável por buscar as receitas dos usuários a partir das preferencias na aplicação",
+                "tags": ["Revenues"],
+                "parameters": [
+                    {
+                      "name": "preference",
+                                        "in": "path",
+                                        "description": "Preferencia do usuário",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "busca realizada com sucesso"
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/revenues/get/":{
+            "get": {
+                "summary": "Busca por todas as receitas",
+                "description": "Está rota será responsável por Buscar todas as receitas cadastradas na aplicação",
+                "tags": ["Revenues"],
+                "responses":{
+                    "200":{
+                        "description": "Busca realizada com sucesso",
+                        "content": {
+                            "application/json":{
+                                  "schema":{
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                                      }
+                                }
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+        "/revenues/create": {
+            "post": {
+                "summary": "Cadastro das receitas",
+                "description": "Está rota será responsável por cadastrar todas as receitas na aplicação",
+                "tags": ["Revenues"],
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Revenues"
+                            },
+                            "example":{     
+                                "preference": "Sem-Lactose",
+                                "title": "Leite Desnatado",
+                                "description": "Leite Desnatado",
+                                "img_url": "Url_Imagem"
+                        
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "Receita criada com sucesso",
+                        "content": {
+                            "application/json":{
+                                  "schema":{
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Revenues"
+                                    }
+                                }
+                                      }
+                                }
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }  
+        },
+
+        "/revenues/update/{id}": {
+            "put": {
+                "summary": "Atualização das receitas",
+                "description": "Está rota será responsável por atualizar as receitas na aplicação",
+                "tags": ["Revenues"],
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Revenues"
+                            },
+                            "example":{     
+                                "preference": "Sem-Lactose",
+                                "title": "Leite Desnatado",
+                                "description": "Leite Desnatado",
+                                "img_url": "Url_Imagem"
+                        
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "id da receita",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "Receita atualizada com sucesso",
+                        "content": {
+                            "application/json":{
+                                  "schema":{
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Revenues"
+                                    }
+                                }
+                                      }
+                                }
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }  
+        },
+
+        "/revenues/delete/{id}": {
+            "delete": {
+                "summary": "Exclusão das receitas",
+                "description": "Está rota será responsável por excluir as receitas na aplicação",
+                "tags": ["Revenues"],
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "id da receita",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "Receita excluida com sucesso",
+                        "content": {
+                            "application/json":{
+                                  "schema":{
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Revenues"
+                                    }
+                                }
+                                      }
+                                }
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }  
+        }
+
+    },
+
+
+    "components":{
+        "schemas":{
+            "User": {
+                "type": "object",
+                "properties":{
+                    "email":{
+                        "type": "String",
+                        "required": true
+                    },
+                    "name":{
+                        "type": "String",
+                        "required": true
+                    },
+                    "preferences":{
+                        "type": "String",
+                        "required": true
+                    },
+                    "password": {
+                        "type": "String",
+                        "required": true
+                    }
+                }
+            },
+            "Meals":{
+                "type": "object",
+                "properties":{
+                    "userId":{
+                        "type": "String",
+                        "required": true
+                        },
+                    "title":{
+                        "type": "String",
+                        "required": true
+                    },
+                    "description": {
+                        "type": "String",
+                        "required": true
+                    },
+                    "calories": {
+                        "type": "String",
+                        "required": true
+                    },
+                    "img_url": {
+                        "type": "String",
+                        "required": true
+                    }
+                }
+            },
+            "Revenues":{
+                "type": "object",
+                "properties":{
+                    "preference":{
+                        "type": "String",
+                        "required": true
+                    },
+                    "title":{
+                        "type": "String",
+                        "required": true
+                    },
+                    "description":{
+                        "type": "String",
+                        "required": true
+                    },
+                    "img_url":{
+                        "type": "String",
+                        "required": true
+                    }
+                }
+            }
+        }
+    }
+}

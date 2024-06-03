@@ -1,0 +1,1 @@
+http://localhost:3000/api-docs/ (essa é a url que da acesso atualente a documentação do swagtger0
