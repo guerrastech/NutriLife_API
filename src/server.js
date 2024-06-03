@@ -3,8 +3,8 @@ const express = require("express");
 const swaggerUI = require("swagger-ui-express");
 
 
-const swaggerDocs = require("./swaggerConfig/swagger.json") 
-const route = require("./src/routes/routes.js")
+const swaggerDocs = require("../swaggerConfig/swagger.json") 
+const route = require("./routes/routes.js")
 const PORT = 3000;
 
 const app = express();
