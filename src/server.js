@@ -1,29 +1,20 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const swaggerUI = require("swagger-ui-express");
+const dotEnv = require("dotenv");
 
-
-const swaggerDocs = require("../swaggerConfig/swagger.json") 
-const route = require("./routes/routes.js")
+const connectDatabase = require("./database/mongo.database.js")
+const swaggerDocs = require("../swaggerConfig/swagger.json"); 
+const route = require("./routes/routes.js");
 const PORT = 3000;
 
+dotEnv.config();
 const app = express();
 
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+connectDatabase();
 app.use(express.json());
-app.use("/NutriLife/api",route)
+app.use("/NutriLife/api",route);
+
+app.listen(PORT,() => console.log("servidor rodando na porta 3000"))
 
 
-mongoose
-.connect(
-    "mongodb+srv://gabrielguerra190803:OgSgnGR0NLYcwgVx@nutrilife.0v7i2l6.mongodb.net/"
-)
-.then(() => {
-    console.log("Conectado ao banco de dados");
-    app.listen(PORT, () => {
-      console.log("Servidor ativo na porta 3000");
-    });
-  })
-.catch(() => {
-    console.log("Falha na conexão ao banco de dados!");
-  });
