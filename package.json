@@ -2,9 +2,9 @@
   "name": "api-nutrilife",
   "version": "1.0.0",
   "description": "api que sera utilizada para desenvolvimento do projeto NutriLife",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "index.js"
+    "start": "server.js"
   },
   "author": "Gabriel Guerra",
   "license": "ISC",
