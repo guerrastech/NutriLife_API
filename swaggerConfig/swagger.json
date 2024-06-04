@@ -12,8 +12,13 @@
     "servers": [
         {
             "url": "http://localhost:3000/NutriLife/api",
-            "description": "API principal"
+            "description": "API de teste"
+        },
+        {
+            "url": "https://nutrilife-api.onrender.com/NutriLife/api",
+            "description": "API Principal"
         }
+
     ],
 
 
