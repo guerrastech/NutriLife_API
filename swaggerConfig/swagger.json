@@ -300,6 +300,41 @@
             }
         },
 
+        "/revenues/get/{id}":{
+            "get":{
+                "summary": "Busca de Receitas a partir do seu id",
+                "description": "Está rota será responsável por buscar as receitas dos usuários a partir do id na aplicação",
+                "tags": ["Revenues"],
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "Preferencia do usuário",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "busca realizada com sucesso",
+                        "content": {
+                            "application/json":{
+                                  "schema":{
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Revenues"
+                                    }
+                                }
+                                      }
+                                }
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
         "/revenues/get/":{
             "get": {
                 "summary": "Busca por todas as receitas",

@@ -26,6 +26,20 @@ const getRevenues = async (req,res) => {
     }
 }
 
+const getRevenueById = async (req,res) => {
+    try{
+        const {id} = req.params;
+
+        const renevues = await Revenue.findById(id);
+        
+        res.status(200).json(renevues);
+
+    }catch(error){
+        console.error("Erro ao obter receita:", error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 const createRevenues = async (req,res) => {
     try{
         const revenues = await Revenue.create(req.body);
@@ -70,5 +84,6 @@ module.exports= {
     getRevenues,
     createRevenues,
     deleteRevenues,
-    updateRevenues
+    updateRevenues,
+    getRevenueById
 }
