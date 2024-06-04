@@ -300,7 +300,7 @@
             }
         },
 
-        "/revenues/get/{id}":{
+        "/revenues/get/id/{id}":{
             "get":{
                 "summary": "Busca de Receitas a partir do seu id",
                 "description": "Está rota será responsável por buscar as receitas dos usuários a partir do id na aplicação",
