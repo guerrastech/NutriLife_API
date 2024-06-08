@@ -63,7 +63,7 @@
                             },
                             "example":{  "email": "gabrielguerra190803@gail.com",
                                         "name": "Gabriel Guerra",
-                                        "preferences": "[vegano,sem-glutem]",
+                                        "preferences": ["vegano","sem-glutem"],
                                         "password": "gabriel123"
                             }
                         }
