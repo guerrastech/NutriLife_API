@@ -145,6 +145,38 @@
         },
 
 
+        "/users/auth/":{
+            "post":{
+                "summary": "Autenticação de Usuários",
+                "description": "Está rota será responsável por autenticar e logas os usuário da aplicação",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "example":{  "email": "gabrielguerra190803@gail.com",
+                                        "password": "gabriel123"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "Usuário encontrado com sucesso"
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
+
+
+
 
         "/meals/get/{userId}":{
             "get":{
