@@ -21,8 +21,8 @@ const login  = async (req,res) => {
             res.status(400).json({ message: error.message });
         }
 
-        res.send(user)
-    
+        
+        res.status(200).send(user)
     
     }catch(error){
         console.error("usuário não encontardo", error);
