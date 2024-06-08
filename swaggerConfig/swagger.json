@@ -508,7 +508,7 @@
                         "required": true
                     },
                     "preferences":{
-                        "type": "String",
+                        "type": "[String]",
                         "required": true
                     },
                     "password": {
