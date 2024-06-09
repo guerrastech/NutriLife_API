@@ -14,6 +14,21 @@ const getUser = async (req,res) => {
     }
 };
 
+const getUserById = async (req,res) => {
+    try{
+        const { id } = req.params;
+
+        const users = await User.findById(id);
+
+        if (!users || users.length === 0) {
+            return res.status(404).json({ error: "Nenhum usuário encontrado" });
+        }
+
+        res.status(201).json(users);
+    }catch(error){
+        res.status(500).json({message: error.message})
+    }
+};
 
 const createUser = async (req,res) => {
     try{
@@ -48,6 +63,7 @@ const deleteUser = async (req,res) => {
 
 module.exports = {
     getUser,
+    getUserById,
     createUser,
     updateUser,
     deleteUser

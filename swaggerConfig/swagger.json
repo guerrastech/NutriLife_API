@@ -50,6 +50,33 @@
             }
         },
 
+        "/users/get/{id}":{
+            "get": {
+                "summary": "Busca de Usuários",
+                "description": "Está rota será responsável por Buscar os usuário a partir de seu id da aplicação",
+                "tags": ["Users"],
+                "responses":{
+                    "200":{
+                        "description": "Busca realizada com sucesso",
+                        "content": {
+                            "application/json":{
+                                  "schema":{
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                                      }
+                                }
+                       
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
         "/users/create/":{
             "post":{
                 "summary": "Cadastro de Usuários",

@@ -1,11 +1,12 @@
 const express = require("express");
 const Router = express.Router();
-const {getUser,createUser,updateUser,deleteUser} = require("../controllers/user.controller.js");
+const {getUserById, getUser,createUser,updateUser,deleteUser} = require("../controllers/user.controller.js");
 const {getMeal,createMeal,deleteMeal,updateMeal} = require("../controllers/meal.controller.js");
 const {getAllRevenues,getRevenues,createRevenues,deleteRevenues,updateRevenues, getRevenueById} = require("../controllers/revenue.controller.js")
 const login = require("../controllers/auth.controller.js");
 
 Router.get("/users/get/", getUser);
+Router.get("/users/get/:id", getUserById);
 Router.post("/users/create/",createUser);
 Router.put("/users/update/:id",updateUser);
 Router.delete("/users/delete/:id",deleteUser);
