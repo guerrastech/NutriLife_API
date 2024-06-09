@@ -3,14 +3,14 @@ const Router = express.Router();
 const {getUser,createUser,updateUser,deleteUser} = require("../controllers/user.controller.js");
 const {getMeal,createMeal,deleteMeal,updateMeal} = require("../controllers/meal.controller.js");
 const {getAllRevenues,getRevenues,createRevenues,deleteRevenues,updateRevenues, getRevenueById} = require("../controllers/revenue.controller.js")
-const authController = require("../controllers/auth.controller.js");
+const login = require("../controllers/auth.controller.js");
 
 Router.get("/users/get/", getUser);
 Router.post("/users/create/",createUser);
 Router.put("/users/update/:id",updateUser);
 Router.delete("/users/delete/:id",deleteUser);
 
-Router.post("/users/auth/",authController)
+Router.post("/users/auth/",login)
 
 Router.get("/meals/get/:userId", getMeal);
 Router.post("/meals/create/",createMeal);
