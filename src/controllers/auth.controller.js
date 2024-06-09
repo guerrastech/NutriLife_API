@@ -23,9 +23,8 @@ const login = async (req, res) => {
 
         const token = generateToken(user.id);
         const id = user.id;
-        res.send({token, id}) /*iinha proxia atualização é retirar esse id pois fica sem segurança porém para agora eu nao tenho outra maneira de usar*/
+        res.status(200).send({token, id}) /*iinha proxia atualização é retirar esse id pois fica sem segurança porém para agora eu nao tenho outra maneira de usar*/
 
-        res.status(200)
 
 
     } catch (error) {
