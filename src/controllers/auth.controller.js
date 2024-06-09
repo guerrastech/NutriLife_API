@@ -22,7 +22,8 @@ const login = async (req, res) => {
         } 
 
         const token = generateToken(user.id);
-        res.send({token})
+        const id = user.id;
+        res.send({token, id})
 
         res.status(200).json(user);
 
