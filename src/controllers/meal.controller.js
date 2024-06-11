@@ -18,6 +18,23 @@ const getMeal = async (req, res) => {
     }
 }
 
+const getMealById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+         const meals = await Meal.findById(id);
+
+        if (!meals || meals.length === 0) {
+            return res.status(404).json({ error: "Nenhuma refeição encontrada" });
+        }
+
+        res.status(200).json(meals);
+    } catch (error) {
+        console.error("Erro ao obter refeição:", error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 
 const createMeal = async (req, res) => {
     try {
@@ -66,6 +83,7 @@ const updateMeal = async (req, res) => {
 
 module.exports = {
     getMeal,
+    getMealById,
     createMeal,
     deleteMeal,
     updateMeal

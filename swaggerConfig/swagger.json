@@ -239,6 +239,31 @@
             }
         },
 
+        "/meals/get/{id}":{
+            "get":{
+                "summary": "Busca de Alimentações",
+                "description": "Está rota será responsável por buscar as refeições dos usuários na aplicação a partir do seu id único",
+                "tags": ["Meals"],
+                "parameters": [
+                    {
+                      "name": "id",
+                                        "in": "path",
+                                        "description": "id da refeição",
+                                        "required": true
+                                    }
+                                ],
+                "responses":{
+                    "200":{
+                        "description": "busca realizada com sucesso"
+
+                    },
+                    "500":{
+                        "description": "Algo esta errado"
+                    }
+                }
+            }
+        },
+
         "/meals/create/":{
             "post":{
                 "summary": "Cadastro de Alimentações",

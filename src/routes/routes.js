@@ -1,7 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 const {getUserById, getUser,createUser,updateUser,deleteUser} = require("../controllers/user.controller.js");
-const {getMeal,createMeal,deleteMeal,updateMeal} = require("../controllers/meal.controller.js");
+const {getMeal,getMealById,createMeal,deleteMeal,updateMeal} = require("../controllers/meal.controller.js");
 const {getAllRevenues,getRevenues,createRevenues,deleteRevenues,updateRevenues, getRevenueById} = require("../controllers/revenue.controller.js")
 const login = require("../controllers/auth.controller.js");
 
@@ -14,6 +14,7 @@ Router.delete("/users/delete/:id",deleteUser);
 Router.post("/users/auth/",login)
 
 Router.get("/meals/get/:userId", getMeal);
+Router.get("/meals/get/:id", getMealById);
 Router.post("/meals/create/",createMeal);
 Router.put("/meals/update/:id",updateMeal);
 Router.delete("/meals/delete/:id",deleteMeal);
