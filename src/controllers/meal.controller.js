@@ -24,7 +24,7 @@ const getMealById = async (req, res) => {
 
          const meals = await Meal.findById(id);
 
-        if (!meals || meals.length === 0) {
+        if (!meals) {
             return res.status(404).json({ error: "Nenhuma refeição encontrada" });
         }
 

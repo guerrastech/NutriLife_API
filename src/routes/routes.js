@@ -14,7 +14,7 @@ Router.delete("/users/delete/:id",deleteUser);
 Router.post("/users/auth/",login)
 
 Router.get("/meals/get/:userId", getMeal);
-Router.get("/meals/get/:id", getMealById);
+Router.get("/meals/get/id/:id", getMealById);
 Router.post("/meals/create/",createMeal);
 Router.put("/meals/update/:id",updateMeal);
 Router.delete("/meals/delete/:id",deleteMeal);
